@@ -9,7 +9,7 @@ with sync_playwright() as p:
  results=[]
  for w,h in [(1440,900),(1024,768),(768,1024),(390,844),(320,568),(844,390),(640,360)]:
   page.set_viewport_size({'width':w,'height':h})
-  page.goto('http://127.0.0.1:8765',wait_until='load')
+  page.goto('file:///D:/Project/flipbook/index.html',wait_until='load')
   page.evaluate('localStorage.clear()')
   page.reload(wait_until='load')
   page.wait_for_function('window.__book && document.querySelector("#book").clientHeight > 100');page.wait_for_timeout(500)

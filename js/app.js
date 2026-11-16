@@ -331,6 +331,85 @@
     $('#qDone').addEventListener('click', function () { self.close(); });
   };
 
+  function wireAudio() {
+    var audio = $('#backgroundMusic');
+    var panel = $('#audioPanel'), trigger = $('#btnSound'), play = $('#btnMusic');
+    var volume = $('#musicVolume'), value = $('#musicVolumeValue'), effects = $('#pageSound');
+    var resumeOnVisible = false;
+    var savedVolume = store.get('musicVolume', 0.25);
+    audio.volume = Math.max(0, Math.min(1, savedVolume));
+    volume.value = Math.round(audio.volume * 100);
+    value.textContent = volume.value + '%';
+    effects.checked = sound.on;
+
+    function sync() {
+      var playing = !audio.paused && !audio.ended;
+      play.textContent = playing ? 'Jeda musik' : 'Putar musik';
+      play.setAttribute('aria-pressed', String(playing));
+      play.disabled = false;
+      trigger.innerHTML = window.icon(playing ? 'music' : sound.on ? 'sound' : 'mute');
+      trigger.classList.toggle('tbtn--on', playing);
+    }
+    function closePanel() {
+      panel.hidden = true;
+      trigger.setAttribute('aria-expanded', 'false');
+    }
+    function startMusic() {
+      play.disabled = true;
+      if (audio.error) audio.load();
+      audio.play().then(sync).catch(function () {
+        sync();
+        toast('Musik belum dapat diputar. Tekan Putar musik untuk mencoba lagi.');
+      });
+    }
+    trigger.addEventListener('click', function () {
+      panel.hidden = !panel.hidden;
+      trigger.setAttribute('aria-expanded', String(!panel.hidden));
+      if (!panel.hidden) play.focus();
+    });
+    play.addEventListener('click', function () {
+      resumeOnVisible = false;
+      if (audio.paused) startMusic(); else audio.pause();
+    });
+    volume.addEventListener('input', function () {
+      audio.volume = Number(volume.value) / 100;
+      value.textContent = volume.value + '%';
+      store.set('musicVolume', audio.volume);
+    });
+    effects.addEventListener('change', function () {
+      sound.on = effects.checked;
+      store.set('sound', sound.on);
+      sync();
+    });
+    ['playing', 'pause', 'ended'].forEach(function (event) { audio.addEventListener(event, sync); });
+    audio.addEventListener('error', function () {
+      sync();
+      toast('Musik tidak dapat dimuat. Periksa koneksi lalu coba lagi.');
+    });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.audio-control')) closePanel();
+    });
+    document.addEventListener('focusin', function (e) {
+      if (!e.target.closest('.audio-control')) closePanel();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !panel.hidden) {
+        closePanel(); trigger.focus();
+      }
+    });
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        resumeOnVisible = !audio.paused;
+        audio.pause();
+      } else if (resumeOnVisible) {
+        resumeOnVisible = false;
+        startMusic();
+      }
+    });
+    window.addEventListener('pagehide', function () { resumeOnVisible = false; audio.pause(); });
+    sync();
+  }
+
   /* ---------- global wiring ---------- */
   function wireGlobal() {
     $('#btnPrev').addEventListener('click', function () { book.prev(); });
@@ -351,13 +430,7 @@
       updateUI();
     });
     $('#btnQuiz').addEventListener('click', function () { quiz.open(); });
-    $('#btnSound').addEventListener('click', function () {
-      sound.on = !sound.on;
-      store.set('sound', sound.on);
-      $('#btnSound').innerHTML = window.icon(sound.on ? 'sound' : 'mute');
-      toast(sound.on ? 'Suara halaman aktif' : 'Suara halaman mati');
-    });
-    $('#btnSound').innerHTML = window.icon(sound.on ? 'sound' : 'mute');
+    wireAudio();
     $('#btnFull').addEventListener('click', function () {
       if (document.fullscreenElement) document.exitFullscreen();
       else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen().catch(function () { toast('Layar penuh tidak tersedia.'); });

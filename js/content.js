@@ -294,14 +294,14 @@
             '<div class="morph__item">' +
               '<span class="morph__tag">Sebelum (denotatif)</span>' +
               '<div class="morph__before">Raja memberi bantuan kepada warga yang kekeringan.</div>' +
-              '<span class="morph__arrow">' + icon('arrowR') + '</span>' +
+              '<span class="morph__arrow">' + icon('chevD') + '</span>' +
               '<span class="morph__tag" style="color:#7E5527">Sesudah (konotatif dan kiasan)</span>' +
               '<div class="morph__after">Raja mengulurkan tangan kepada warganya yang dilanda kekeringan, seperti ayah menggendong anak yang kelelahan.</div>' +
             '</div>' +
             '<div class="morph__item">' +
               '<span class="morph__tag">Sebelum (denotatif)</span>' +
               '<div class="morph__before">Ibu itu sedih karena anaknya pergi.</div>' +
-              '<span class="morph__arrow">' + icon('arrowR') + '</span>' +
+              '<span class="morph__arrow">' + icon('chevD') + '</span>' +
               '<span class="morph__tag" style="color:#7E5527">Sesudah (konotatif dan kiasan)</span>' +
               '<div class="morph__after">Hati sang ibu remuk redam ketika anaknya melangkah pergi.</div>' +
             '</div>' +

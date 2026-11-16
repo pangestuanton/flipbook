@@ -201,3 +201,28 @@
   .lightbox { padding: 16px; }
   .lightbox__frame { padding: 12px; }
 }
+
+/* Audio settings share the existing toolbar slot. */
+.audio-control { position: relative; display: flex; flex: none; }
+.audio-panel {
+  position: absolute; right: 0; bottom: calc(100% + 12px); z-index: 55;
+  width: 280px; padding: 18px; border: 1px solid var(--rose-soft);
+  border-radius: var(--r-md); background: var(--cream); box-shadow: var(--sh-pop);
+  display: grid; gap: 12px;
+}
+.audio-panel[hidden] { display: none; }
+.audio-panel h2 { font-size: 1.1rem; margin: 0; }
+.audio-panel p { margin: 0; line-height: 1.5; }
+.audio-panel #btnMusic { width: 100%; min-height: 44px; padding: 0 12px; }
+.audio-panel__volume { display: flex; justify-content: space-between; gap: 12px; font-size: .85rem; font-weight: 700; }
+.audio-panel input[type="range"] { width: 100%; height: 32px; margin: 0; accent-color: var(--rose-ink); cursor: pointer; }
+.audio-panel__effects { display: flex; align-items: center; gap: 8px; min-height: 44px; font-size: .85rem; cursor: pointer; }
+.audio-panel__effects input { width: 18px; height: 18px; accent-color: var(--rose-ink); }
+.audio-control > .tbtn--on:hover { background: var(--rose-ink); border-color: var(--rose-ink); color: var(--white); }
+.audio-panel input:focus-visible { outline: 3px solid var(--rose-ink); outline-offset: 3px; }
+@media (max-width: 900px) {
+  .audio-panel { position: fixed; right: 12px; bottom: calc(78px + env(safe-area-inset-bottom)); width: min(280px, calc(100vw - 24px)); max-height: calc(100dvh - 100px); overflow-y: auto; }
+}
+@media (max-height: 500px) {
+  .audio-panel { position: fixed; right: 12px; bottom: calc(48px + env(safe-area-inset-bottom)); width: min(280px, calc(100vw - 24px)); max-height: calc(100dvh - 56px); padding: 12px; gap: 8px; }
+}

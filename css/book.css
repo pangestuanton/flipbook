@@ -182,7 +182,10 @@
   width: 100%;
   transform-origin: center center;
 }
-.book--single .leaf.is-flipped { transform: rotateY(-180deg); }
+.book--single .leaf.is-flipped {
+  transform: rotateY(-180deg);
+  pointer-events: none;
+}
 .book--single .leaf__face--front { border-radius: var(--r-md); box-shadow: none; }
 .book--single .leaf__face--back { border-radius: var(--r-md); box-shadow: none; }
 .book--single .leaf__face--back { box-shadow: none; }

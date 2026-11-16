@@ -57,3 +57,9 @@ Klik kanan pada `index.html` dan pilih **Open with Live Server**.
 ## 📄 Lisensi
 
 Materi modul ditujukan untuk keperluan pembelajaran Bahasa Indonesia SMP/MTs.
+
+## Musik latar
+
+Klik tombol audio di toolbar, lalu **Putar musik** untuk mendengarkan instrumental lembut yang berulang. Panel yang sama menyediakan volume musik dan pengaturan efek suara halaman secara terpisah. Volume tersimpan di perangkat; musik dijeda saat tab ditinggalkan.
+
+Musik lokal ada di `audio/ruang-baca.mp3` (sekitar 385 KB), tanpa layanan streaming tambahan. Cara mengganti atau membuat ulang musik dijelaskan di [audio/README.md](audio/README.md).

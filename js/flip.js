@@ -113,6 +113,19 @@
 
   FlipBook.prototype._normalizeZ = function () {
     var L = this.leafEls.length;
+    if (this.mode === 'single') {
+      for (var i = 0; i < L; i++) {
+        var leaf = this.leafEls[i];
+        if (i < this.desired) {
+          leaf.style.zIndex = 10 + i;
+        } else if (i === this.desired) {
+          leaf.style.zIndex = 200;
+        } else {
+          leaf.style.zIndex = 100 + (L - i);
+        }
+      }
+      return;
+    }
     for (var i = 0; i < L; i++) {
       var z = this.leafEls[i]._want || this.leafEls[i].classList.contains('is-flipped')
         ? 100 + i

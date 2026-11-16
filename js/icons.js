@@ -31,6 +31,7 @@ window.FB_ICONS = {
   arrowR: '<path d="M5 12h13m-5-5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>',
   zoom: '<circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
   refresh: '<path d="M19 12a7 7 0 1 1-2-4.9M17 3.5v4h-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>',
+  music: '<path d="M9 18V5l11-2v13M9 9l11-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="6" cy="18" rx="3" ry="2.5" fill="currentColor"/><ellipse cx="17" cy="16" rx="3" ry="2.5" fill="currentColor"/>',
   play: '<path d="M8 5v14l11-7z" fill="currentColor"/>',
   cornerR: '<path d="M6 4h14v14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M20 4l-9 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
   cornerL: '<path d="M18 4H4v14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M4 4l9 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>'
