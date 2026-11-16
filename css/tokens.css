@@ -1,0 +1,61 @@
+/* ============================================================
+   Design tokens: Soft Pink Educational Playbook
+   Palette extracted from the attached asset sheet (imagebro.jpg)
+   ============================================================ */
+:root {
+  /* Core palette (from assets) */
+  --rose-ink: #6D3F3A;        /* darkest: headings, ink accents */
+  --rose: #CA8289;            /* primary accent */
+  --rose-deep: #B06A72;       /* pressed / hover accent */
+  --rose-soft: #DFBFB6;       /* secondary tint, borders */
+  --peach: #FBD1A0;           /* warm highlight */
+  --peach-soft: #FDE8D8;      /* highlight tint */
+  --cream: #FFF4EC;           /* page paper */
+  --ivory: #FAF6F2;           /* card paper */
+  --mint: #E2ECE7;            /* info tint */
+  --mint-deep: #9DBBAE;       /* info border */
+  --lavender: #EAE4F4;        /* quiz tint */
+  --lavender-deep: #A794C4;   /* quiz border */
+  --ink: #4A3430;             /* body text */
+  --ink-soft: #7A5F58;        /* secondary text */
+  --paper-line: #EFE0D8;      /* hairlines on paper */
+  --white: #FFFFFF;
+
+  /* Semantic */
+  --ok: #5E8C61;
+  --ok-tint: #E4EFE2;
+  --no: #C25B5B;
+  --no-tint: #F7E3E3;
+
+  /* Typography */
+  --font-display: 'Baloo 2', 'Trebuchet MS', cursive;
+  --font-body: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+
+  /* Radii */
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 34px;
+
+  /* Elevation (few, purposeful) */
+  --sh-card: 0 2px 10px rgba(109, 63, 58, 0.08);
+  --sh-pop: 0 10px 30px rgba(109, 63, 58, 0.16);
+  --sh-book: 0 24px 60px -18px rgba(109, 63, 58, 0.35), 0 6px 18px rgba(109, 63, 58, 0.12);
+
+  /* Spacing scale */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 44px;
+  --sp-8: 60px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-flip: cubic-bezier(0.42, 0, 0.35, 1);
+  --t-fast: 160ms;
+  --t-med: 320ms;
+  --t-flip: 900ms;
+}
